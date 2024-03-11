@@ -1,0 +1,363 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>EnSeCo KVM</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="EnSeCo KVM - Technical outsourcing company specialized on installation of Air Traffic Management systems, Radars and Radio Communication.">
+	<meta name="keywords" content="technical outsourcing, Ukraine, engineering, ATM, radars, Indra, enseco">
+	<link rel="icon" href="img/plane.png">
+	<link rel="preload" href="https://www.google.com/maps/d/u/0/embed?mid=1TLJoMCwgeXy4wOHDp6QXOvdl9DtK3Z0q&z=3" as="document">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body onload="start()" onscroll="Scroll()">
+		<div class="UpContainer" id="UpContainer">
+		<a href="#"><img class="up" src="img/arrow.png"></a>
+		</div>
+		<div id="bg"></div>
+		<div id="scrollBar" class="scrollBar"></div>
+		<div id="rail"></div>
+	<header>
+		<div id="langTab" class="lang" onmouseenter="onLangOver()" onmouseleave="onLangOut()"><div><img src="img/globe.png"></div><input onchange="languageSwitch();" type="radio" name="language" id="ua-ua" value="ua"><label for="ua-ua"><div class="language checkmark" id="ua"><img src="img/ua.png"></div></label><input onchange="languageSwitch();" id="ru-ru" type="radio" name="language" value="ru"><label for="ru-ru"><div id="ru" class="language checkmark"><img src="img/ru.png"></div></label><input value="en" onchange="languageSwitch();" id="en-uk" type="radio" name="language" checked><label for="en-uk"><div class="language checkmark" id="en"><img src="img/en.png"></div></label></div>
+		<div id = "nav" class="nav">
+		<nav>
+			<input class="navInput" type="radio" value="profile" name="chapter" id="prfl" onchange="chapterSwitch()">
+			<label for="prfl">
+				<div style="animation: sleep 1.8s 1;">
+					<a id="link1">
+					<div id="frstbtn" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)" class="navig"><span lang="en">Profile</span><span lang="ru">Досье</span><span lang="ua">Досьє</span></div>
+					</a>
+				</div>
+			</label>
+			<input class="navInput" type="radio" value="projects" name="chapter" id="prjcts" onchange="chapterSwitch()">
+			<label for="prjcts">
+			<a id="link2">
+				<div style="animation: sleep 2.1s 1;">
+					<div id="scndbtn" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)" class="navig"><span lang="en">Projects</span><span lang="ru">Проекты</span><span lang="ua">Проєкти</span></div>
+				</div>
+			</a>
+			</label>
+			<input class="navInput" type="radio" value="contacts" name="chapter" id="cntcts" onchange="chapterSwitch()">
+			<label for = "cntcts">
+				<a id="link3">
+				<div style="animation: sleep 2.4s 1;">
+					<div id="thrdbtn" onmouseover="mouseOver(this)" onmouseout="mouseOut(this)" onmousedown="mouseDown(this)" onmouseup="mouseUp(this)" class="navig"><span lang="en">Contacts</span><span lang="ru">Контакты</span><span lang="ua">Контакти</span></div>
+				</div>
+				</a>
+			</label>
+			<!--Костиль :D ==>--><input class="navInput" type="radio" value="contacts" name="chapter" id="cntcts2" style="display: none;">
+		</nav>
+		</div>
+		<section id="intro">
+			<div class="leftBorder">
+				<div class="logoHolder">
+				<img src="img/logo.png" id="logo" class="logo"><span id="tooltiptext"><span lang="en">Home</span><span lang="ru">Главная</span><span lang="ua">Головна</span></span>
+				</div>
+			<section id="navTab">
+			<div id="profileTab" class="navigTab">
+				<a href="#general"><div id="gnrl"><h2 class="menu"><span lang="en">Profile</span><span lang="ru">Досье</span><span lang="ua">Досьє</span></h2></div></a>
+				<ul>
+					<hr class="line"><a href="#ATM"><li class="menu" id="tm"><span lang="en">ATM systems</span><span lang="ru">Системы УВД</span><span lang="ua">Системи КПР</span></li></a>
+					<a href="#radars"><li class="menu" id="rdrs"><span lang="en">Radars</span><span lang="ru">Радары</span><span lang="ua">Радари</span></li></a>
+					<a href="#radCom"><li class="menu" id="rdcm"><span lang="en">Radio communication</span><span style="font-size: 1.7vw" lang="ru">Радиокоммуникация</span><span lang="ua">Радіокомунікація</span></li></a>
+				</ul>
+			</div>
+			<div id="projectsTab" class="navigTab">
+				<a href="#mainProjects"><div id="mainPr"><h2 class="menu"><span lang="en">Projects</span><span lang="ru">Проекты</span><span lang="ua">Проєкти</span></h2></div></a>
+				<ul>
+					<hr class="line"><a href="#indraPr"><li class="menu" id="ipr"><span lang="en">Indra projects</span><span lang="ru">Проекты Indra</span><span lang="ua">Проєкти Indra</span></li></a>
+					<!--<a href="#jotronPr"><li class="menu" id="jpr"><span lang="en">Jotron projects</span><span lang="ru">Проекты Jotron</span><span lang="ua">Проєкти Jotron</span></li></a>-->
+					<a href="#location"><li class="menu" id="loc"><span lang="en">Geography of sites</span><span lang="ru">Места работы</span><span lang="ua">Місця роботи</span></li></a>
+				</ul>
+			</div>
+			<div id="contactsTab" class="navigTab">
+				<div style="margin-top: 15vh;"><h2 class="menu"><span lang="en">Contacts</span><span lang="ru">Контакты</span><span lang="ua">Контакти</span></h2></div>
+			</div>
+		</section>
+	</header>
+	<main>
+			</div>
+			<div class="leftTriangle">
+			</div>
+		</section>
+		<section id="opening" class="fadeOut">
+			<div class="container">
+				<div class="content">
+					<h1><span lang="en">General</span><span lang="ru">Главное</span><span lang="ua">Головне</span></h1>
+					<p><h3><span lang="en">EnSeCo KVM company was established as an entity in 2019. Company is specialized on Technical Outsourcing Services related to installation of modern Equipment and Systems on Air Traffic and Communication and Navigation fields.</span><span lang="ru">Компания EnSeCo KVM была основана как юридическое лицо в 2019 году. Компания специализируется на услугах технического аутсорсинга, связанных с установкой современного оборудования и систем в области воздушного движения, связи и навигации.</span><span lang="ua">Компанія EnSeCo KVM була заснована як юридична особа в 2019 році. Компанія спеціалізується на послугах технічного аутсорсингу, пов’язаних із встановленням сучасного обладнання й систем у галузі повітряного руху та зв'язку і навігації.</span></h3>
+				</p>
+				</div>
+			</div>
+		</section>
+		<section id="profile" class="fadeOut">
+			<article>
+			<div class="container" id="general">
+				<div class="content">
+					<h1><span lang="en">Profile</span><span lang="ru">Досье</span><span lang="ua">Досьє</span></h1>
+					<p><span lang="en">EnSeCo KVM entity established 2019</span><span lang="ru">Компания EnSeCo KVM основана в 2019 году</span><span lang="ua">Компанія ІнСеКо КВМ заснована в 2019 році</span><br>
+					<span lang="en">Staff experienced  since 2010</span><span lang="ru">Опыт работы персонала: с 2010 года</span><span lang="ua">Досвід роботи працівників: з 2010 року</span><br>
+					<span lang="en">The main activity is technical outsourcing</span><span lang="ru">Основной вид деятельности — технический аутсорсинг</span><span lang="ua">Основний вид діяльності — технічний аутсорсинг</span><br>
+					<h2><span lang="en">Our services include:</span><span lang="ru">Наши услуги:</span><span lang="ua">Наші послуги:</span></h2>
+					<ul style="margin-left: 5vw;">
+						<li><span lang="en">Project technical design</span><span lang="ru">Технический дизайн проекта</span><span lang="ua">Технічний дизайн проєкту</span></li>
+						<li><span lang="en">Equipment installation</span><span lang="ru">Установка оборудования</span><span lang="ua">Встановлення обладнання</span></li>
+						<li><span lang="en">Commissioning</span><span lang="ru">Введение в эксплуатацию</span><span lang="ua">Введення в експлуатацію</span></li>
+						<li><span lang="en">Training</span><span lang="ru">Обучение</span><span lang="ua">Навчання</span></li>
+						<li><span lang="en">Maintenance support</span><span lang="ru">Поддержка техничкского обслуживания</span><span lang="ua">Підтримка технічного обслуговування</span></li>
+						<li><span lang="en">Radio communication</span><span lang="ru">Радиосвязь</span><span lang="ua">Радіозв'язок</span></li>
+					</ul>
+				</p>
+				</div>
+			</div>
+			<div class="border"></div>
+			</article>
+			<article>
+			<div class="container" id="ATM">
+				<div class="content">
+					<h1><span lang="en">Air traffic managment (ATM)</span><span lang="ru">Управление воздушным движением (УВД)</span><span lang="ua">Керування повітряним рухом (КПР)</span></h1>
+					<p><span lang="en">EnSeCo KVM,LLC is one of authorized technical provider for one of market leader in Air Traffic
+Management systems manufacturer - Indra sistems S.A company, Spain.
+The cooperation between companies was established in 2015 and continued with mutual success.
+During years it was implemented more than 20 different subsystems related to ATM sector such as:
+ATM system, ATM simulators, Voice and data recording systems, 3D Visual Simulator.</span><span lang="ru">EnSeCo KVM, LLC является одним из уполномоченных поставщиков технических услуг для одного из лидеров на рынке производителей систем управления воздушным движением - компании Indra sistems S.A, Испания. Сотрудничество между компаниями было налажено в 2015 году и продолжается с взаимным успехом. В течение многих лет было внедрено более 20 различных подсистем, касающиеся сектора УВД, таких как: система УВД, тренажеры УВД, системы записи голоса и данных, 3D визуальный тренажер.</span><span lang="ua">EnSeCo KVM, LLC є одним із уповноважених постачальників технічних послуг для одного з лідерів на ринку виробників систем керування повітряним рухом - компанії Indra sistems S.A, Іспанія. Співпраця між компаніями була налагоджена в 2015 році і продовжується з взаємним успіхом. Протягом багатьох років було впроваджено понад 20 різних підсистем, що стосуються сектору КПР, таких як: система КПР, тренажери КПР, системи запису голосу та даних, 3D візуальний тренажер.</span></p>
+				</div>
+			</div>
+			<div class="border"></div>
+			</article>
+			<article>
+			<div class="container" id="radars">
+				<div class="content">
+					<h1><span lang="en">Radars</span><span lang="ru">Радары</span><span lang="ua">Радари</span></h1>
+					<p><span lang="en">After years of cooperation with Indra S.A. company EnSeCo KVM get experience in Installation of Radars
+and CNS system due Indra is a manufacturer of Radars and CNS systems as well (MSSR, PSR, DVOR,
+DME). For the moment EnSeCo company performed 4 sites installation with MSSR/PSR system and 1 site
+with DME system.</span><span lang="ru">После многолетнего сотрудничества с компанией Indra S.A. компания EnSeCo KVM получила опыт установки радаров и системы CNS благодаря тому, что компания Indra также является производителем радаров и систем CNS (MSSR, PSR, DVOR, DME). На данный момент компания EnSeCo выполнила 4 установки с системой MSSR / PSR и 1 установку с системой DME.</span><span lang="ua">Після багаторічної співпраці з компанією Indra S.A. компанія EnSeCo KVM отримала досвід встановлення радарів та системи CNS завдяки тому, що компанія Indra також є виробником радарів та систем CNS (MSSR, PSR, DVOR, DME). На даний момент компанія EnSeCo виконала 4 встановлення із системою MSSR / PSR та 1 встановлення із системою DME.</span></p>
+				</div>
+			</div>
+			<div class="border"></div>
+			</article>
+			<article>
+			<div class="container" id="radCom">
+				<div class="content">
+					<h1><span lang="en">Radio communication</span><span lang="ru">Радиокоммуникация</span><span lang="ua">Радіокомунікація</span></h1>
+					<p><span lang="en">One of related to Aviation systems is Radio Communication. EnSeCo KVM company has cooperation
+with JOTRON AS manufacturer . For the moment there are 2 projects in progress .
+Technical staff had on Jotron premises certified training and hopefully projects will be finished after
+COVID -19 downtime.
+</span><span lang="ru">Одной из связанных с авиационными системами является Радиосвязь. Компания EnSeCo KVM сотрудничает с производителем JOTRON AS. На данный момент выполняются 2 проекты. Технический персонал прошел сертификационные обучения в помещениях компании Jotron, и, надеемся, проекты будут закончены после простоя COVID-19.</span><span lang="ua">Однією з пов'язаних з авіаційними системами є Радіозв'язок. Компанія EnSeCo KVM співпрацює з виробником JOTRON AS. На даний момент виконуються 2 проєкти. Технічний персонал пройшов сертифікаційне навчання у приміщеннях компанії Jotron, і, сподіваємось, проекти будуть закінчені після простою COVID -19.</span></p>
+				</div>
+			</div>
+			</article>
+		</section>
+		<section id="projects" class="fadeOut">
+			<article>
+			<div class="container" id="mainProjects">
+				<div class="content">
+					<h1><span lang="en">Projects</span><span lang="ru">Проекты</span><span lang="ua">Проєкти</span></h1>
+					<p><h2><span lang="en">During the Project Execution the next works are performed usually:</span><span lang="ua">Під час виконання проекту, зазвичай, виконуються наступні роботи:</span><span lang="ru">Во время выполнения проекта, обычно, проводятся следующие работы:</span></h2><ul>
+						<li><span lang="en">Site Survey</span><span lang="ru">Осмотр места работ</span><span lang="ua">Огляд місця робіт</span></li>
+						<li><span lang="en">Installation Design (As Build Document) Development</span><span lang="ru">Разработка проектной документации, а также финальный документ монтажа</span><span lang="ua">Розробка проектної документації, а також фінальний документ монтажу</span></li>
+						<li><span lang="en">Time schedule preparation</span><span lang="ru">Подготовка графика работ</span><span lang="ua">Підготовка графіку робіт</span></li>
+						<li><span lang="en">Installation Materials and Resourses to be used estimation</span><span lang="ru">Оценка трудовых и материальных ресурсов</span><span lang="ua">Розрахунок трудових та матеріальних ресурсів</span></li>
+						<li><span lang="en">Assistance on Factory Acceptance Test (FAT) procedures</span><span lang="ru">Помощь в проведении заводских приёмочных испытаний</span><span lang="ua">Допомога у проведенні процедур приймального тестування</span></li>
+						<li><span lang="en">On Site installation activity</span><span lang="ru">Проведение монтажных работ</span><span lang="ua">Виконання монтажних робіт</span></li>
+						<li><span lang="en">Assistance on Pre SAT/SAT</span><span lang="ru">Помощь в Pre SAT/SAT</span><span lang="ua">Допомога щодо Pre SAT/SAT</span></li>
+						<li><span lang="en">On Site Technical Training</span><span lang="ru">Техинческое обучение на месте работ</span><span lang="ua">Технічне навчання на місці робіт</span></li>
+						<li><span lang="en">Warranty and Maintenance Services</span><span lang="ru">Услуги с гарантийного и технического обслуживания</span><span lang="ua">Послуги з гарантійного та технічного обслуговування</span></li>
+					</ul></p>
+				</div>
+			</div>
+			<div class="border"></div>
+			</article>
+			<article>
+			<div class="container" id="indraPr">
+				<div class="content">
+					<h1 style="text-align: left;"><span lang="en">Indra projects:</span><span lang="ru">Проекты Indra:</span><span lang="ua">Проєкти Indra:</span><div style="float:right;"><a target="_blank" rel="noopener noreferrer" href="https://www.indracompany.com/en/"><img title="Official website" src="img/Indra_new.png" style="filter: brightness(3);margin-top: 1.5vw;" class="partners_logo"></a></div></h1>
+					<table class="projectsTable">
+						<tbody>
+						<tr><td><span>2022</span></td><td>
+							<span lang="en">ATM Simulator at Kingdom of Bahrain<br></span>
+							<span lang="ru">Тренажер УВД в Королевстве Бахрейн<br></span>
+							<span lang="ua">Тренажер КПР в Королівстві Бахрейн<br></span>
+						</td></tr>	
+						<tr><td><span>2021</span></td><td>
+							<span lang="en">ATM System at Kingdom of Bahrain<br></span>
+							<span lang="ru">Система УВД в Королевстве Бахрейн<br></span>
+							<span lang="ua">Система КПР в Королівстві Бахрейн<br></span>
+						</td></tr>	
+						<tr><td><span>2020</span></td><td>
+							<span lang="en">ATM System on 12 Control Towers at Kingdom of Saudi Arabia<br></span>
+							<span lang="ru">Система УВД на 12 диспетчерских вышках в Королевсве Саудовская Аравия<br></span>
+							<span lang="ua">Система КПР на 12 диспетчерських вежах в Королівстві Саудівська Аравія<br></span>
+						</td></tr>	
+						<tr><td><span>2020</span></td><td>
+							<span lang="en">MLAT and SMR Radar at Kingdom of Saudi Arabia Riyadh KKIA<br>(in progress)</span>
+							<span lang="ru">MLAT и SMR радары в аэропорту Рияд, Эр-Рияд, Королевство Саудовская Аравия <br>(Выполняется)</span>
+							<span lang="ua">MLAT та SMR радари в аеропорті Ріяд, Ер-Ріяд, Королівство Саудівська Аравія<br>(Виконується)</span>
+						</td></tr>	
+						<tr><td><span>2019</span></td><td>
+							<span lang="en">MLAT and SMR Radar at Kingdom of Saudi Arabia Madinah PMA<br></span>
+							<span lang="ru">MLAT и SMR радары в PMA, Медина, Королевство Саудовская Аравия <br></span>
+							<span lang="ua">MLAT та SMR радари в PMA, Медіна, Королівство Саудівська Аравія<br></span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2021</span></td><td>
+							<span lang="en">ATM System in Nairobi, Republic of Kenya</span>
+							<span lang="ru">Система УВД в Найроби, Республика Кения</span>
+							<span lang="ua">Система КПР в Найробі, Республіка Кенія</span>
+							</td></tr>
+						<tr class="item_invisible"><td><span>2019</span></td><td>
+							<span lang="en">Kingdom of Saudi Arabia ATM System Riyadh ACC</span>
+							<span lang="ru">Система УВД в ACC города Рияд, Королевство Саудовская Аравия</span>
+							<span lang="ua">Система КПР в ACC міста Ріяд, Королівство Саудівська Аравія</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2019</span></td><td>
+							<span lang="en">MSSR Radar System at Kazakhstan/Aktobe</span>
+							<span lang="ru">Радарная система MSSR в Актобе в Казахстане</span>
+							<span lang="ua">Радарна система MSSR в Актобе в Казахстані</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2019</span></td><td>
+							<span lang="en">Kingdom of Saudi Arabia ATM System Jeddah ACC</span>
+							<span lang="ru">Система УВД в ACC города Джедда, Королевство Саудовская Аравия</span>
+							<span lang="ua">Система КПР в ACC міста Джедда, Королівство Саудівська Аравія</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2018</span></td><td>
+							<span lang="en">Kingdom of Saudi Arabia ATM System Abha APP, Dammam APP</span>
+							<span lang="ru">Система УВД в APP города Даммам, APP города Абха, Королевство Саудовская Аравия</span>
+							<span lang="ua">Система КПР в APP міста Даммам, APP міста Абха, Королівство Саудівська Аравія</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2017</span></td><td>
+							<span lang="en">SMR Radar Modernization Lithuania/Vilnius</span>
+							<span lang="ru">Модернизация радара SMR в городе Вильнюс в Литве</span>
+							<span lang="ua">Модернізація радару SMR в місті Вільнюс в Литві</span>
+						</td></tr>
+						<!--<tr class="item_invisible"><td><span>2017</span></td><td><span lang="en">ACC/APP/TWR ATM System and Simulator in Odessa (Ukraine)</span></td></tr>-->
+						<tr class="item_invisible"><td><span>2017</span></td><td>
+							<span lang="en">ACC/APP/TWR ATC System in Tbilisi (Georgia)</span>
+							<span lang="ru">Системы УВД ACC/APP/TWR в городе Тбилиси в Грузии</span>
+							<span lang="ua">Системи КПР ACC/APP/TWR в місті Тбілісі в Грузії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2016</span></td><td>
+							<span lang="en">ACC/APP/TWR ATC System in Kutaisi (Georgia)</span>
+							<span lang="ru">Системы УВД ACC/APP/TWR в городе Кутаиси в Грузии</span>
+							<span lang="ua">Системи КПР ACC/APP/TWR в місті Кутаїсі в Грузії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2016</span></td><td>
+							<span lang="en">PSR/MSSR radar Modernization in Bucharest (Romania)</span>
+							<span lang="ru">Модернизация радаров PSR/MSSR у городе Бухарест в Румынии</span>
+							<span lang="ua">Модернізація радарів PSR/MSSR у місті Бухарест в Румунії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2016</span></td><td>
+							<span lang="en">ACC/APP/TWR ATC Simulator in Tbilisi (Georgia)</span>
+							<span lang="ru">тренажер УВД ACC/APP/TWR у городе Тбилиси у Грузии</span>
+							<span lang="ua">тренажер КПР ACC/APP/TWR у місті Тбілісі у Грузії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2015</span></td><td>
+							<span lang="en">MSSR radar Modernization in Cluj (Romania)</span>
+							<span lang="ru">Модернизация радара MSSR в городе Клуж-Напока в Румынии</span>
+							<span lang="ua">Модернізація радару MSSR в місті Клуж-Напока в Румунії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2015</span></td><td>
+							<span lang="en">MSSR radars Modernization in Bacau (Romania)</span>
+							<span lang="ru">Модернизация радара MSSR в городе Бакэу в Румынии</span>
+							<span lang="ua">Модернізація радару MSSR в місті Бакеу в Румунії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2015</span></td><td>
+							<span lang="en">3 ADS-B systems for Georgia</span>
+							<span lang="ru">3 системы ADS-B для Грузии</span>
+							<span lang="ua">3 системи ADS-B для Грузії</span>
+						</td></tr>
+						<tr class="item_invisible"><td><span>2015</span></td><td>
+							<span lang="en">DME system in Tirana Airport (Albania)</span>
+							<span lang="ru">Система DME в аэропорту города Тирана в Албании</span>
+							<span lang="ua">Система DME в аеропорту міста Тірана в Албанії</span>
+						</td></tr>
+					</tbody>
+					</table>
+					<button class="buttonRead" onclick="readMore(this)"><span lang="en">Read more</span><span lang="ru">Больше</span><span lang="ua">Більше</span></button>
+			</div>
+			</article>
+			<div class="border"></div>
+			<!--<article>
+			<div class="container" id="jotronPr">
+				<div class="content">
+					<h1 style="text-align: left; vertical-align: middle;"><span lang="en">Jotron projects:</span><span lang="ru">Проекты Jotron:</span><span lang="ua">Проєкти Jotron:</span><div style="float:right;"><a target="_blank" rel="noopener noreferrer" href="https://jotron.com"><img src="img/jotron_logo.png" title="Official website" class="partners_logo"></a></div></h1>
+					<table class="projectsTable">
+						<tbody>
+						<tr><td><span>2019</span></td><td><span lang="en">Kingdom of Saudi Arabia ATM System Riyadh ACC (in progress)</span></td></tr>
+						<tr><td><span>2019</span></td><td><span lang="en">MSSR Radar System at Kazakhstan/Aktobe</span></td></tr>
+						<tr><td><span>2019</span></td><td><span lang="en">Kingdom of Saudi Arabia ATM System Jeddah ACC</span></td></tr>
+						<tr><td><span>2018</span></td><td><span lang="en">Kingdom of Saudi Arabia ATM System Abha APP, Dammam APP</span></td></tr>
+						<tr><td><span>2017</span></td><td><span lang="en">SMR Radar Modernization Lithuania/Vilnius</span></td></tr>
+						<tr class="item_invisible"><td><span>2017</span></td><td><span lang="en">ACC/APP/TWR ATC System in Tbilisi (Georgia)</span></td></tr>
+					</tbody>
+					</table>
+					<button class="buttonRead" onclick="readMore(this)">Read more</button>
+				</div>
+			</div>
+			<div class="border"></div>
+			</article>-->
+			<article>
+				<div class="container" id="location" style="padding-bottom: 5vh;">
+					<div class="content">
+					<h1><span lang="en">Geography of sites</span><span lang="ru">Местоположения проектов</span><span lang="ua">Місцезнаходження проєктів</span></h1>
+					<div style=" height:65vh;margin-bottom:5vh;">
+					<div style="height:65vh; overflow:hidden; position: absolute; width:100%;border: 0.5vw solid white; border-radius: 0.4vw;">
+						<iframe src="https://www.google.com/maps/d/u/0/embed?mid=1TLJoMCwgeXy4wOHDp6QXOvdl9DtK3Z0q&z=3"></iframe>
+					</div>
+					</div>
+					</div>
+				</div>
+			</article>
+		</section>
+		<section id ="contacts" class="fadeOut">
+			<article>
+			<div style="padding-top: 2vh; width: 75vw;" class="container" id="contactInfo">
+				<div class="businesscard">
+					<div>
+						<div>
+							<h1 lang="en">Viktor Kovalenko</h1>
+							<span lang="en">CEO</span>
+							<h1 lang="ru">Виктор Коваленко</h1>
+							<span lang="ru">Исполнительный директор</span>
+							<h1 lang="ua">Віктор Коваленко</h1>
+							<span lang="ua">Генеральний директор</span>
+						</div>
+					</div>
+					<img src="img/logo2.png" id="bus_card_logo">
+					<h1 lang="en">Aviation field Engineering Service Company</h1>
+					<h1 lang="ua">Інженерна Сервісна Компанія в галузі авіації</h1>
+					<h1 lang="ru">Инженерная Сервисная Компания в области авиации</h1>
+					<img src="img/bus_card_plane.png" id="bus_card_plane">
+					<div>
+						<span>
+							<img src="img/Telegram.png">
+							<img src="img/WhatsApp.png">
+							<img src="img/Google_Duo.png">
+						</span>
+						<span>+38 097 220 77 99</span>
+						<span>+38 066 180 38 11</span>
+						<span>info.enseco@gmail.com</span>
+						<span><a href="http://www.enseco.aero">www.enseco.aero</a></span>
+					</div>
+				</div>
+			</article>
+		</section>
+	</main>
+	<footer>
+		<div>
+			<p><span lang="en">E<font class="little">N</font>S<font class="little">E</font>C<font class="little">O</font> KVM LLC</span><span lang="ru" class="footHidden">ООО EnSeCo KVM</span><span lang="ua" class="footHidden">ТОВ ІнСеКо КВМ</span> ©2021</p>
+			<input type="checkbox" id="easterEgg" style="display: none; position: fixed; bottom: 0; z-index: 10000" onchange="easterEgg()">
+		</div>
+	</footer>
+	<!--<script type="text/javascript">
+	function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+};
+	if(isMobileDevice() == true){
+	document.body.innerHTML = '<font color="black">Mobile devices are not supported yet</font>'
+}
+	</script>-->
+	<script src="js/main.js"></script>
+</body>
+</html>
